@@ -1,0 +1,9 @@
+# SQLite database
+sms.db
+
+# VS Code / IDE configs
+.vscode/
+.idea/
+.git/
+.system_generated/
+*.log
