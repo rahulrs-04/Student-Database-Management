@@ -1,3 +1,11 @@
+<?php
+require_once __DIR__ . '/session_helper.php';
+session_start();
+if (isset($_SESSION['student_uid'])) {
+    header('location: student/dashboard.php');
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -51,9 +59,20 @@
             $rollno = $_POST['rollno'];
             
             include('dbcon.php');
-            include('function.php');
             
-            showdetails($standard, $rollno);
+            $standard_esc = $con->escapeString($standard);
+            $rollno_esc = $con->escapeString($rollno);
+            
+            $qry = "SELECT * FROM `student` WHERE `rollno`='$rollno_esc' AND `standard`='$standard_esc'";
+            $run = $con->query($qry);
+            
+            if ($run && ($data = $run->fetchArray(SQLITE3_ASSOC))) {
+                $_SESSION['student_uid'] = $data['id'];
+                header('location: student/dashboard.php');
+                exit();
+            } else {
+                echo "<div style='margin-top:2rem; padding:1rem; border-radius:10px; background:rgba(255, 75, 92, 0.1); border:1px solid rgba(255, 75, 92, 0.2); color:var(--danger); text-align:center; font-weight:600;'>No Student Found matching these criteria.</div>";
+            }
         }
         ?>
     </div>
