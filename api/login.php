@@ -1,7 +1,7 @@
 <?php
 session_start();
 if(isset($_SESSION['uid'])) {
-    header('location:admin/admindash.php');
+    header('location:Admin/admindash.php');
     exit();
 }
 ?>
@@ -54,7 +54,7 @@ if(isset($_SESSION['uid'])) {
                 $id = $data['id'];
                 
                 $_SESSION['uid'] = $id;
-                header('location:admin/admindash.php');
+                header('location:Admin/admindash.php');
                 exit();
             } else {
                 echo "<div style='margin-top:1.5rem; padding:0.75rem; border-radius:8px; background:rgba(255, 75, 92, 0.1); border:1px solid rgba(255, 75, 92, 0.2); color:var(--danger); text-align:center; font-size:0.875rem; font-weight:600;'>Invalid Username or Password</div>";
