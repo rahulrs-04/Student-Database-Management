@@ -10,7 +10,7 @@ $success_msg = null;
 $error_msg = null;
 
 if(isset($_POST['submit'])){
-    include('../dbcon.php');
+    include __DIR__ . '/../dbcon.php';
     
     $rollno = $con->escapeString($_POST['rollno']);
     $name = $con->escapeString($_POST['name']);
@@ -42,8 +42,8 @@ if(isset($_POST['submit'])){
     }
 }
 
-include('header.php');
-include('titleheader.php');
+include __DIR__ . '/header.php';
+include __DIR__ . '/titleheader.php';
 ?>
 
 <div class="glass-container" style="max-width: 600px; margin-top: 1rem;">

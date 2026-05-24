@@ -6,8 +6,8 @@ if(!isset($_SESSION['uid'])) {
     exit();
 }
 
-include('header.php');
-include('titleheader.php');
+include __DIR__ . '/header.php';
+include __DIR__ . '/titleheader.php';
 ?>
 
 <div class="glass-container" style="max-width: 900px; margin-top: 1rem;">
@@ -31,7 +31,7 @@ include('titleheader.php');
     
     <?php
     if(isset($_POST['submit'])){
-        include('../dbcon.php');
+        include __DIR__ . '/../dbcon.php';
         
         $standard = $con->escapeString($_POST['standard']);
         $name = $con->escapeString($_POST['stuname']);

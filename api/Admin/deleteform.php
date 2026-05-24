@@ -6,7 +6,7 @@ if(!isset($_SESSION['uid'])) {
     exit();
 }
 
-include('../dbcon.php');
+include __DIR__ . '/../dbcon.php';
 
 $id = $con->escapeString($_REQUEST['sid']);
 
@@ -23,8 +23,8 @@ if ($img_res && ($img_data = $img_res->fetchArray(SQLITE3_ASSOC))) {
 $qry = "DELETE FROM `student` WHERE `id` = '$id'";
 $run = $con->exec($qry);
 
-include('header.php');
-include('titleheader.php');
+include __DIR__ . '/header.php';
+include __DIR__ . '/titleheader.php';
 ?>
 
 <div class="glass-container" style="max-width: 500px; text-align: center; margin-top: 5rem;">

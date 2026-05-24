@@ -6,7 +6,7 @@ if(!isset($_SESSION['uid'])) {
     exit();
 }
 
-include('header.php');
+include __DIR__ . '/header.php';
 ?>
 
 <div class="admintitle">

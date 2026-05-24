@@ -7,7 +7,7 @@ if (!isset($_SESSION['student_uid'])) {
     exit();
 }
 
-include('../dbcon.php');
+include __DIR__ . '/../dbcon.php';
 
 $student_id = $_SESSION['student_uid'];
 $qry = "SELECT * FROM `student` WHERE `id` = '$student_id'";

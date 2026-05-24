@@ -58,7 +58,7 @@ if (isset($_SESSION['student_uid'])) {
             $standard = $_POST['std'];
             $rollno = $_POST['rollno'];
             
-            include('dbcon.php');
+            include __DIR__ . '/dbcon.php';
             
             $standard_esc = $con->escapeString($standard);
             $rollno_esc = $con->escapeString($rollno);

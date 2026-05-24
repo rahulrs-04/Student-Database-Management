@@ -1,7 +1,7 @@
 <?php
 
 function showdetails($standard, $rollno) {
-    include('dbcon.php');
+    include __DIR__ . '/dbcon.php';
 
     // SQLite uses escapeString to clean inputs
     $standard_esc = $con->escapeString($standard);

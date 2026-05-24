@@ -42,7 +42,7 @@ if(isset($_SESSION['uid'])) {
 
         <?php
         if(isset($_POST['login'])){
-            include('dbcon.php');
+            include __DIR__ . '/dbcon.php';
             
             $username = $con->escapeString($_POST['uname']);
             $password = $con->escapeString($_POST['pass']);

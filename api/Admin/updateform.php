@@ -6,9 +6,9 @@ if(!isset($_SESSION['uid'])) {
     exit();
 }
 
-include('header.php');
-include('titleheader.php');
-include('../dbcon.php');
+include __DIR__ . '/header.php';
+include __DIR__ . '/titleheader.php';
+include __DIR__ . '/../dbcon.php';
 
 $sid = $con->escapeString($_GET['sid']);
 
