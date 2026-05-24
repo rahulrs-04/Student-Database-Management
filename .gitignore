@@ -1,6 +1,9 @@
 # SQLite database
 sms.db
 
+# Local configuration files
+db_config.php
+
 # VS Code / IDE configs
 .vscode/
 .idea/
