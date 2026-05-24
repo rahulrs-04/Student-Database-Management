@@ -1,0 +1,5 @@
+.git
+.system_generated
+.idea
+.vscode
+*.log
