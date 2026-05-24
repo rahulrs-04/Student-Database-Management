@@ -1,4 +1,5 @@
 <?php
+ob_start();
 if (!class_exists('CookieSessionHandler')) {
     class CookieSessionHandler implements SessionHandlerInterface {
         private $cookiePrefix = 'PHPSESS_';
