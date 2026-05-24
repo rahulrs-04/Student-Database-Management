@@ -1,4 +1,5 @@
 <?php
+require_once __DIR__ . '/session_helper.php';
 session_start();
 if(isset($_SESSION['uid'])) {
     header('location:Admin/admindash.php');
