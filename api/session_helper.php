@@ -1,5 +1,4 @@
 <?php
-ob_start();
 if (!class_exists('CookieSessionHandler')) {
     class CookieSessionHandler implements SessionHandlerInterface {
         private $cookiePrefix = 'PHPSESS_';
@@ -49,5 +48,14 @@ if (!class_exists('CookieSessionHandler')) {
 
     $handler = new CookieSessionHandler();
     session_set_save_handler($handler, true);
+
+    // Start output buffering with a callback to commit the session
+    // before the HTTP headers/body are sent to the client.
+    ob_start(function($buffer) {
+        if (session_status() === PHP_SESSION_ACTIVE) {
+            session_write_close();
+        }
+        return $buffer;
+    });
 }
 ?>
